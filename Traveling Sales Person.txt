@@ -1,0 +1,45 @@
+Genetic Algorithm for Traveling Salesman Problem Documentation
+The provided Python code implements a genetic algorithm to solve the Traveling Salesman Problem (TSP). The TSP is a classic optimization problem where the goal is to find the shortest possible route that visits a set of cities and returns to the starting city.
+
+Classes
+City
+Represents a city with coordinates (x, y).
+distance(city): Calculates the Euclidean distance between the current city and another city.
+__repr__(): Returns a string representation of the city.
+Fitness
+Evaluates the fitness of a route by calculating the total distance.
+routeDistance(): Calculates the total distance of the route.
+routeFitness(): Calculates the fitness value based on the inverse of the route distance.
+Functions
+createRoute(cityList)
+Generates a random route by shuffling the given list of cities.
+initialPopulation(popSize, cityList)
+Creates an initial population of routes by calling createRoute for the specified population size.
+rankRoutes(population)
+Ranks the routes in the population based on their fitness values in descending order.
+selection(popRanked, eliteSize)
+Selects the top routes as elite routes and the rest based on a roulette wheel selection.
+matingPool(population, selectionResults)
+Creates a mating pool by selecting routes from the population based on the selection results.
+breed(parent1, parent2)
+Performs crossover between two parent routes to produce a child route.
+breedPopulation(matingpool, eliteSize)
+Produces the next generation of routes by applying crossover to the mating pool.
+mutate(individual, mutationRate)
+Applies a mutation to an individual route by swapping two cities.
+mutate_invert(individual, mutationRate)
+Applies an inversion mutation to an individual route by reversing a segment of cities.
+mutate_Shuffle(individual, mutationRate)
+Applies a shuffle mutation to an individual route by randomly shuffling a segment of cities.
+mutate_Insertion(individual, mutationRate)
+Applies an insertion mutation to an individual route by moving a city to a different position.
+mutatePopulation(population, mutationRate)
+Applies mutation to the entire population.
+nextGeneration(currentGen, eliteSize, mutationRate)
+Produces the next generation of routes by performing selection, crossover, and mutation.
+geneticAlgorithm(population, popSize, eliteSize, mutationRate, generations)
+Runs the genetic algorithm for a specified number of generations and returns the best route found.
+
+Output
+The algorithm outputs the initial and final distances of the best route found, along with the route itself. The initial and final distances are printed to the console. The best route is stored in the bestRoute variable.
+
